@@ -1,32 +1,3 @@
-"""
-=============================================================================
-UAE PROMO PULSE SIMULATOR - PRODUCTION DASHBOARD
-=============================================================================
-
-A comprehensive promotional analytics platform for UAE retail operations.
-Built by the Data Rescue Team.
-
-Features:
-    - Data Cleaning & Quality Analysis
-    - Sales Analytics with Multi-dimensional Filtering
-    - Inventory Health Monitoring
-    - Campaign Performance Analysis
-    - What-If Promotion Simulator
-    - Store Performance Benchmarking
-    - Time-based Pattern Analysis
-
-Data Sources (from data_generator.py):
-    1. products.csv - Product master data (300 rows)
-    2. stores.csv - Store information (18 rows)
-    3. sales_raw.csv - Sales transactions (~35,000 rows)
-    4. inventory_snapshot.csv - Stock levels (~39,600 rows)
-    5. campaign_plan.csv - Promotional campaigns (10 rows)
-
-Author: Data Rescue Team
-Version: 2.0 Production
-Date: 2024
-=============================================================================
-"""
 
 # =============================================================================
 # IMPORTS
@@ -40,6 +11,7 @@ from plotly.subplots import make_subplots
 from datetime import datetime, timedelta
 import random
 import warnings
+warnings.filterwarnings('ignore')
 
 # Suppress warnings for cleaner output
 warnings.filterwarnings('ignore')
@@ -9780,7 +9752,6 @@ def main():
     # APPLY GLOBAL STYLES
     # =========================================================================
     def apply_custom_css():
-    """Apply custom CSS styling for the dark theme dashboard."""
     st.markdown("""
     <style>
     /* Main app styling */
@@ -10082,3 +10053,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
