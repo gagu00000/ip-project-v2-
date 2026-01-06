@@ -9779,7 +9779,135 @@ def main():
     # =========================================================================
     # APPLY GLOBAL STYLES
     # =========================================================================
-    apply_custom_css()
+    def apply_custom_css():
+    """Apply custom CSS styling for the dark theme dashboard."""
+    st.markdown("""
+    <style>
+    /* Main app styling */
+    .stApp {
+        background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #0f0f1a 100%);
+    }
+    
+    /* Sidebar styling */
+    section[data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+        border-right: 1px solid rgba(99, 102, 241, 0.2);
+    }
+    
+    /* Headers */
+    h1, h2, h3, h4, h5, h6 {
+        color: #ffffff !important;
+    }
+    
+    /* Metric cards */
+    div[data-testid="metric-container"] {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 16px;
+    }
+    
+    div[data-testid="metric-container"] label {
+        color: #a1a1aa !important;
+    }
+    
+    div[data-testid="metric-container"] div[data-testid="stMetricValue"] {
+        color: #ffffff !important;
+    }
+    
+    /* DataFrames */
+    .stDataFrame {
+        border-radius: 12px;
+        overflow: hidden;
+    }
+    
+    /* Buttons */
+    .stButton > button {
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 24px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .stButton > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    }
+    
+    /* Selectbox */
+    .stSelectbox > div > div {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+    }
+    
+    /* Tabs */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+        background: transparent;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        color: #a1a1aa;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .stTabs [aria-selected="true"] {
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        color: white;
+    }
+    
+    /* Expander */
+    .streamlit-expanderHeader {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+    }
+    
+    /* Progress bar */
+    .stProgress > div > div {
+        background: linear-gradient(90deg, #6366f1, #10b981);
+    }
+    
+    /* Slider */
+    .stSlider > div > div > div {
+        background: #6366f1;
+    }
+    
+    /* Info/Warning/Error boxes */
+    .stAlert {
+        border-radius: 8px;
+    }
+    
+    /* Hide Streamlit branding */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #1a1a2e;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #6366f1;
+        border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: #8b5cf6;
+    }
+    </style>
+    """, unsafe_allow_html=True)
     
     # =========================================================================
     # LOAD DATA
@@ -9952,4 +10080,5 @@ def main():
 # =============================================================================
 
 if __name__ == "__main__":
+
     main()
