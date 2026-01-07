@@ -10571,7 +10571,37 @@ def render_about_section():
     **Developed for:** UAE Retail Operations Analytics
     """)
 
+# 1. Add missing functions at the top of main()
+def apply_custom_css():
+    load_premium_css()
 
+def load_and_prepare_data():
+    return generate_sample_data()
+
+def render_executive_overview(sales_df, inventory_df, campaigns_df, stores_df):
+    products_df = st.session_state.products_df  # Get from session state
+    render_hero_header()
+    render_overview_kpis(products_df, stores_df, sales_df, inventory_df, campaigns_df)
+    st.markdown("")
+    render_overview_detailed(products_df, stores_df, sales_df, inventory_df, campaigns_df)
+    st.markdown("")
+    render_data_quality_overview(products_df, stores_df, sales_df, inventory_df)
+
+# 2. Add this constant section after imports
+# Configuration Constants
+QUALITY_EXCELLENT = 95
+QUALITY_GOOD = 80
+QUALITY_FAIR = 60
+CACHE_TTL_SECONDS = 7200  # 2 hours
+DEFAULT_ROWS_PER_PAGE = 50
+
+# 3. Add error handling wrapper
+def safe_render(render_func, *args, **kwargs):
+    try:
+        render_func(*args, **kwargs)
+    except Exception as e:
+        st.error(f"Error rendering component: {str(e)}")
+        st.exception(e)
 # =============================================================================
 # MAIN APPLICATION
 # =============================================================================
@@ -10763,3 +10793,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
